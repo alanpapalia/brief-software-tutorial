@@ -2,8 +2,6 @@
 #include <iostream>
 #include <vector>
 
-#include "glog/logging.h"
-
 #include "utils.cpp"
 
 void segfault_function(int i)
@@ -12,7 +10,7 @@ void segfault_function(int i)
   {
     // segfault error
     std::vector<int> new_arr;
-    LOG(INFO) << new_arr[1];
+    std::cout << new_arr[1];
   }
   else
   {
@@ -22,8 +20,6 @@ void segfault_function(int i)
 
 int main(int argc, char *argv[])
 {
-  google::InitGoogleLogging(argv[0]);
-  google::ParseCommandLineFlags(&argc, &argv, true);
 
   function_stack_1();
   function_stack_2();
